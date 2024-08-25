@@ -379,6 +379,14 @@ pub fn check_event(event: Event) -> Result<bool> {
     }
 }
 
+/// Signals an event.
+pub fn signal_event(event: &Event) -> Result {
+    let bt = boot_services_raw_panicking();
+    let bt = unsafe { bt.as_ref() };
+
+    unsafe { (bt.signal_event)(event.as_ptr()) }.to_result()
+}
+
 /// Removes `event` from any event group to which it belongs and closes it.
 ///
 /// If `event` was registered with [`register_protocol_notify`], then the
