@@ -18,6 +18,7 @@ pub mod media;
 pub mod misc;
 pub mod network;
 pub mod pi;
+pub mod pci;
 pub mod rng;
 pub mod security;
 pub mod shell_params;
